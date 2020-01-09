@@ -15,8 +15,8 @@
 
 下图图一就是一个最大堆，图二就是一个最小堆
 
-![最大堆](./pics/heap_big.webp)
-![最小堆](./pics/heap_small.webp)
+![最大堆](./pics/heap_big.png)
+![最小堆](./pics/heap_small.png)
 
 在一个摆放好元素的最小堆中，可以看到，父结点中的元素一定比子结点的元素要小，但对于左右结点的大小则没有规定谁大谁小
 
@@ -28,7 +28,7 @@
 + 栈的特殊之处在于它限制了这个线性表的插入和删除位置，它始终只在栈顶进行
 + 栈是一种具有后进先出的数据结构，又称为后进先出的线性表，简称 LIFO（Last In First Out）结构
 
-![栈](./pics/stack.webp)
+![栈](./pics/stack.png)
 
 ## 队列
 
@@ -38,4 +38,4 @@
 
 而且队列是一种先进先出的数据结构，又称为先进先出的线性表，简称 FIFO（First In First Out）结构
 
-![queue](./pics/queue.webp)
+![queue](./pics/queue.png)

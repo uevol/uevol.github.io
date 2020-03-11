@@ -60,7 +60,7 @@
 + 忽略不必要文件
   参考文件: [gitignore](./gitignore)
 
-+ 代码提交规范为: `<type>: <subject>`
++ 提交格式: `<type>: <subject>`
 
   **commit分类如下:**
 

@@ -14,7 +14,7 @@ exclude: |
 
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v2.4.0
+    rev: 'v2.4.0'
     hooks:
     -   id: trailing-whitespace
     -   id: end-of-file-fixer
@@ -24,19 +24,32 @@ repos:
 
 # flake8检查: 代码逻辑、pep8风格、复杂度
 -   repo: https://gitlab.com/PyCQA/flake8
-    rev: 3.7.1
+    rev: '3.7.1'
     hooks:
     -   id: flake8
         args: [--max-complexity=12] # flake8官方推荐不超过12
-
-# python第三方库安全漏洞检查
--   repo: https://github.com/Lucas-C/pre-commit-hooks-safety
-    rev: v1.1.0
-    hooks:
-    -   id: python-safety-dependencies-check
 
 # python库导入检查
 -   repo: https://github.com/pre-commit/mirrors-isort
     rev: 'v4.3.21'  # Use the revision sha / tag you want to point at
     hooks:
     -   id: isort
+
+# # python第三方库安全漏洞检查
+# -   repo: https://github.com/Lucas-C/pre-commit-hooks-safety
+#     rev: 'v1.1.0'
+#     hooks:
+#     -   id: python-safety-dependencies-check
+
+# # detects errors and potential problems in JavaScript code
+# -   repo: github.com/pre-commit/mirrors-jshint
+#     rev: 'v2.11.0'
+#     hooks:
+#     -   id: jshint
+
+# # identifying and reporting on patterns found in ECMAScript/JavaScript code
+# # In many ways, it is similar to JSLint
+# -   repo: https://github.com/pre-commit/mirrors-eslint
+#     rev: 'v6.8.0'
+#     hooks:
+#     -   id: eslint

@@ -14,6 +14,11 @@
 
 + [kafka基本](./kafka/kafka_base_operation.md)
 
+## mongo
+
++ [mongo基础](https://github.com/uevol/mongo_notes)
++ [python连接mongo复制集](./mongo/mongo.py)
+
 ## Others
 
 + githook

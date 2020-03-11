@@ -1,6 +1,6 @@
 # 运维开发人员通用规范
 
-此规范目前仅适用于SAAS开发人员，包括前端和后端开发人员，其他非saas开发科参考
+此规范目前仅适用于SAAS开发人员，包括前端和后端开发人员，其他非saas开发可参考
 
 ## 1. 开发规范说明
 
@@ -28,7 +28,7 @@
 ### 2.1 后端编码规范
 
 + 后端编码规范参考[Google 开源项目风格指南 - Python 风格指南](https://zh-google-styleguide.readthedocs.io/en/latest/google-python-styleguide/contents/)
-+ [配置pre-commit](#)，使用flake8进行静态检查，包括逻辑错误、复杂度和编码风格检查
++ [配置pre-commit](../githook/pre-commit.md)，使用flake8进行静态检查，包括逻辑错误、复杂度和编码风格检查
 
 ### 2.2 前端编码规范
 
@@ -41,8 +41,9 @@
   + [Idiomatic JavaScript Style Guide](https://github.com/rwaldron/idiomatic.js)
   + [JavaScript Standard Style Guide](https://github.com/standard/standard)
 
-+ [配置pre-commit](#)
-  使用pre-commit进行自动检查，可直接在pre-commit-config.yaml文件添加hook。默认配置了jshint，如需使用，取消注释即可
++ [配置pre-commit](../githook/pre-commit.md)
+  使用pre-commit进行自动检查，可直接在pre-commit-config.yaml文件添加hook。
+  默认配置了jshint，如需使用，取消注释即可
 
   + [jshit hook](github.com/pre-commit/mirrors-jshint)
 
@@ -63,7 +64,7 @@
   + bugfix - 线上功能 bug
   + sprintfix - 功能模块未上线部分 bug
   + minor - 不重要的修改（换行，拼写错误等）
-  + feat - 新功能说明
+  + feature - 新功能说明
   + docs - 文档
   + refactor - 重构（即不是新增功能，也不是修改bug的代码变动）
   + test - 增加测试
@@ -73,12 +74,12 @@
   + 第一个字母小写
   + 结尾不加句号（.）
 
-+ [配置commit-msg](#)
++ [配置commit-msg](../githook/commit-msg.md)
   使用 git hook commit-msg 规范 git commit message
 
-+ 早上上班拉取dev分支最新代码。
++ 上班拉取dev分支最新代码
   **禁止长时间不拉取更新代码，导致本地开发分支与master分支偏离越来越远，合并代码冲突解决困难**
-+ 晚上下班提交代码，防止代码丢失。
++ 下班提交代码，防止代码丢失
   **禁止长时间不提交代码，导致本地开发分支与master分支偏离越来越远，合并代码冲突解决困难**
 
 ## 4. Code Review

@@ -1,0 +1,42 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+default_language_version:
+    python: python3
+
+# 蓝鲸框架自带模块不检查
+exclude: |
+    (?x)(
+        blueapps/|
+        config/|
+        blueking|
+        settings.py
+    )
+
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.4.0
+    hooks:
+    -   id: trailing-whitespace
+    -   id: end-of-file-fixer
+    -   id: check-yaml
+    -   id: check-added-large-files
+    -   id: requirements-txt-fixer
+
+# flake8检查: 代码逻辑、pep8风格、复杂度
+-   repo: https://gitlab.com/PyCQA/flake8
+    rev: 3.7.1
+    hooks:
+    -   id: flake8
+        args: [--max-complexity=12] # flake8官方推荐不超过12
+
+# python第三方库安全漏洞检查
+-   repo: https://github.com/Lucas-C/pre-commit-hooks-safety
+    rev: v1.1.0
+    hooks:
+    -   id: python-safety-dependencies-check
+
+# python库导入检查
+-   repo: https://github.com/pre-commit/mirrors-isort
+    rev: 'v4.3.21'  # Use the revision sha / tag you want to point at
+    hooks:
+    -   id: isort

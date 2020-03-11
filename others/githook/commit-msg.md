@@ -19,15 +19,15 @@
 + 将里面的内容修改为下面内容
 
 ```shell
-#!/bin/bash
+#!/bin/sh
 MSG=`awk '{printf("%s",$0)}' $1`
-if [[ $MSG =~ ^(feature|bugfix|sprintfix|refactor|docs|minor)\(.*\):.*$ ]]
+if [[ $MSG =~ ^(feature|bugfix|sprintfix|refactor|docs|minor):.*$ ]]
 then
-    echo -e "\033[32m commit success! \033[0m"
+    echo "\033[32m commit success! \033[0m"
 else
-    echo  "\033[31m Error: the commit message is irregular \033[m"
-        echo  "\033[31m Error: type must be one of [feature,bugfix,sprintfix,docs,minor,refactor] \033[m"
-    echo  "\033[31m eg: feature: add commit-msg function \033[m"
+    echo "\033[31m Error: the commit message is irregular \033[m"
+    echo "\033[31m Error: type must be one of [feature,bugfix,sprintfix,docs,minor,refactor] \033[m"
+    echo "\033[31m eg: feature: add commit-msg function \033[m"
     exit 1
 fi
 ```

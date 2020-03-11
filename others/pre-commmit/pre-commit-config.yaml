@@ -30,7 +30,7 @@ repos:
         args: [--max-complexity=12] # flake8官方推荐不超过12
 
 # python第三方库安全漏洞检查
--   repo: https://github.com/Lucas-C/pre-commit-hooks-safety   
+-   repo: https://github.com/Lucas-C/pre-commit-hooks-safety
     rev: v1.1.0
     hooks:
     -   id: python-safety-dependencies-check

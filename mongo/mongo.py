@@ -2,9 +2,9 @@
 # @filename mongo.py
 # @author yw
 # @email uevol@outlook.com
-# @description connect mongodb repliaction set
+# @description connect mongodb replication set
 # @created 2020-03-11T17:12:34.875Z+08:00
-# @last-modified 2020-03-11T18:05:25.278Z+08:00
+# @last-modified 2020-03-18T15:29:12.006Z+08:00
 import urllib
 
 from pymongo import MongoClient

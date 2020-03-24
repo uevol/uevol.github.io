@@ -5,7 +5,7 @@
 # @email WillYang@canway.net
 # @description deploy bk saas. adapted based on install/saas.py
 # @created 2020-03-24T10:40:15.303Z+08:00
-# @last-modified 2020-03-24T11:26:54.704Z+08:00
+# @last-modified 2020-03-24T17:25:01.994Z+08:00
 
 import argparse
 import logging
@@ -80,7 +80,7 @@ class AppManager(object):
         self.broker_url = broker_url
 
     def upload_pkg(self, file_path, token_url, upload_url=None):
-
+        logg.info("request bk_csrftoken")
         upload_csrftoken = self.get_csrftoken(token_url, 'bk_csrftoken')
         logg.info("get upload token:{} from {}".format(upload_csrftoken, token_url))
 
@@ -166,19 +166,19 @@ class SimpleDB(object):
 
 
 if __name__ == '__main__':
-    p = argparse.ArgumentParser()
-    p.add_argument('-e', action='store', dest='deploy_env', help='which env to deploy, i.e: appt or appo')
-    p.add_argument('-n', action='store', dest='app_code', help='app code')
-    p.add_argument('-k', action='store', dest='pkg_path', help='saas package path')
-    p.add_argument('-f', action='store', dest='paas_fqdn', help='paas domain')
-    p.add_argument('-p', action='store', dest='paas_https_port', help='paas https port')
-    p.add_argument('-u', action='store', dest='paas_admin_user', help='paas admin user')
-    p.add_argument('-P', action='store', dest='paas_admin_pass', help='paas admin pass')
-    p.add_argument('-mysql_host', action='store', dest='mysql_host', help='mysql host')
-    p.add_argument('-mysql_user', action='store', dest='mysql_user', help='mysql user')
-    p.add_argument('-mysql_pass', action='store', dest='mysql_pass', help='mysql pass')
-    p.add_argument('-mysql_port', action='store', dest='mysql_port', help='mysql port')
-    p.add_argument('-d', action='store_true', dest='debug_enable', help='debug mode')
+    p = argparse.ArgumentParser(description='deploy blueking saas by script')
+    p.add_argument('-e', required=True, dest='deploy_env', help=u'部署环境')
+    p.add_argument('-n', required=True, dest='app_code', help=u'蓝鲸SAAS的app code')
+    p.add_argument('-k', required=True, dest='pkg_path', help=u'部署包所在路径')
+    p.add_argument('-f', required=True, dest='paas_fqdn', help=u'平台域名')
+    p.add_argument('-p', required=True, dest='paas_https_port', default='80', help=u'平台web端口')
+    p.add_argument('-u', required=True, dest='paas_admin_user', default='admin', help=u'部署时使用账号')
+    p.add_argument('-P', required=True, dest='paas_admin_pass', help=u'部署账号密码')
+    p.add_argument('-b', required=True, dest='mysql_host', help=u'平台SAAS使用mysql主机')
+    p.add_argument('-a', required=True, dest='mysql_user', help=u'mysql用户')
+    p.add_argument('-s', required=True, dest='mysql_pass', help=u'mysql用户密码')
+    p.add_argument('-m', required=True, dest='mysql_port', help=u'mysql端口')
+    p.add_argument('-d', dest='debug_enable', choices=('debug_enable',), help='debug mode')
     args = p.parse_args()
 
     saas_env = {
@@ -203,6 +203,12 @@ if __name__ == '__main__':
 
     formatter = logging.Formatter(log_fmt)
     logging.basicConfig(format=log_fmt, datefmt=date_fmt, level=log_level)
+
+    # 检查日志文件是否存在
+    if not os.path.exists('logs/'):
+        os.mkdir('logs/')
+        if not os.path.exists('./logs/deploy_saas.log'):
+            os.system('touch ./logs/deploy_saas.log')
 
     fh = logging.FileHandler("./logs/deploy_saas.log")
     fh.setFormatter(formatter)

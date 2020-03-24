@@ -1,0 +1,7 @@
+# -*- coding: utf-8 -*-
+
+# 工程额外包，通过pip安装
+
+argparse==1.4.0
+pymsql==0.9.3
+requests==2.23.0

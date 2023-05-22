@@ -4,4 +4,4 @@
 
 argparse==1.4.0
 pymsql==0.9.3
-requests==2.23.0
+requests==2.31.0
